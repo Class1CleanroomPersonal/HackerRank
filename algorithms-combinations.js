@@ -1,23 +1,23 @@
 var start = [1,7,2,4,8,3];
-function getnerateCombinations(set, combinationSize){
+function generateCombinations(set, combinationSize){
 	let cursors = [...new Array(combinationSize).keys()];
-	var combos = walkCombinations(set, cursors, cursors.length - 1);
-	combos.push(set.splice(0, combinationSize));
-	console.log(combos);
+	var combinations = walkCombinations(set, cursors, cursors.length - 1);
+	combinations.push(set.splice(0, combinationSize));
+	return combinations;
 }
-function walkCombinations(set, cursors, currentIndex, combos = []){
+function walkCombinations(set, cursors, currentIndex, combinations = []){
 	if(cursors[currentIndex] < set.length - 1 && cursors[currentIndex] + 1 != cursors[currentIndex+1] ){
 		cursors[currentIndex]++;
-		combos.push(cursors.map(cursor => start[cursor]));
-		walkCombinations(set, cursors.slice(), currentIndex, combos);
+		combinations.push(cursors.map(cursor => start[cursor]));
+		walkCombinations(set, cursors.slice(), currentIndex, combinations);
 		if(currentIndex > 0){
-			walkCombinations(set, cursors, currentIndex - 1, combos);
+			walkCombinations(set, cursors, currentIndex - 1, combinations);
     	}
-		return combos;
+		return combinations;
     }
 	
 }
-getnerateCombinations(start, 4);
+generateCombinations(start, 4);
 /*----------------------------------------------------------------------------*/
 function generatePairs(set, pairs=[]){
 	const member = set.shift();
