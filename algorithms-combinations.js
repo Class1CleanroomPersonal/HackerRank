@@ -18,3 +18,16 @@ function walkCombinations(set, cursors, currentIndex, combos = []){
 	
 }
 getnerateCombinations(start, 4);
+/*----------------------------------------------------------------------------*/
+function generatePairs(set, pairs=[]){
+	const member = set.shift();
+    for(let subSetMember of set){
+        pairs.push([member, subSetMember]);
+    }
+	
+	if(set.length > 1){
+		generatePairs(set, pairs);
+    }
+
+	return pairs;
+}
