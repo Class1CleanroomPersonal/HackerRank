@@ -1,0 +1,9 @@
+bindActionCreators
+
+No binding - Babel plugin called Class properties transform 
+
+Maintain immutability
+  consider using immutable
+    ES6 syntax makes maintaining immutabliity easy
+
+Use selectors keep state logic to a minimum and seperate display and business concerns
